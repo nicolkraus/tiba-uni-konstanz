@@ -1,0 +1,71 @@
+import axios from "axios";
+import React from "react";
+
+import {Component} from 'react';
+
+const imageAPI = "http://localhost:8000/api/interactions/";
+const editAPI = "http://localhost:8000/api/editinteractions/";
+
+
+export default class Interactions extends Component {
+	constructor() {
+		super();
+		this.state = {
+			min_edge_count: '0',
+			image: null,
+		}
+	}
+
+	componentDidMount() {
+		const formData = new FormData();
+		formData.append('min_edge_count', this.state.min_edge_count);
+		fetch(editAPI, {
+			method: 'POST',
+			body: formData,
+		});
+		axios.get(imageAPI).then((response) => {
+			this.setState({
+				image: response.data[0].image
+			});
+		});
+	}
+
+	handleFileChange = e => {
+		this.setState({
+			[e.target.name]: e.target.value,
+		})
+	}
+
+	handleSubmit = async e => {
+		e.preventDefault();
+		const formData = new FormData();
+		formData.append('min_edge_count', this.state.min_edge_count);
+		await fetch(editAPI, {
+			method: 'POST',
+			body: formData,
+		});
+		axios.get(imageAPI).then((response) => {
+			this.setState({
+				image: response.data[0].image
+			});
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<h3>Interaction Network:</h3>
+				<form onSubmit={this.handleSubmit}>
+					<input
+						name="min_edge_count"
+						type="number"
+						min="0"
+						onChange={this.handleFileChange}>
+					</input>
+					<input type="submit" value="Apply"></input>
+				</form>
+				<img src={this.state.image} alt="not loaded" />
+			</div>
+		)
+	}
+}

@@ -1,0 +1,7 @@
+strict digraph  {
+Left;
+unknown;
+Right;
+Left -> unknown  [label=147, penwidth="3.0"];
+Right -> unknown  [label=135, penwidth="2.7551020408163267"];
+}

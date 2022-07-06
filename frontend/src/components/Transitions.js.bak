@@ -1,0 +1,23 @@
+import axios from "axios";
+import React from "react";
+
+const baseURL = "http://localhost:8000/api/transitions/1/";
+
+export default function DisplayTransitions() {
+	const [image, setImage] = React.useState(null);
+
+	React.useEffect(() => {
+		axios.get(baseURL).then((response) => {
+			setImage(response.data);
+		});
+	}, []);
+
+	if (!image) return null;
+
+	return (
+		<div>
+			<h3>Transition network:</h3>
+			<img src={image.image} alt="not loaded" />
+		</div>
+	);
+}
