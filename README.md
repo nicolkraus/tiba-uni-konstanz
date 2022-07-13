@@ -30,4 +30,4 @@ A tool for the analysis of animal behavior. Created in cooperation with biologis
 
 
 ![Screenshot 2022-07-13 at 13-17-13 React App](https://user-images.githubusercontent.com/49905943/178721906-64e30d0c-1ad3-4fc4-93aa-6c48261986ee.png)
-![Screenshot 2022-07-13 at 13-17-29 React App](https://user-images.githubusercontent.com/49905943/178721889-81f24a8f-304e-40bc-b28d-b710c2c3af19.png)
+![Screenshot 2022-07-13 at 13-17-29 React App](https://user-images.githubusercontent.com/49905943/178743200-c6dc3eeb-272d-4ecf-a673-a64a8f00d9a0.png)
